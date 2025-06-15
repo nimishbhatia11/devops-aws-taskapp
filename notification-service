@@ -1,0 +1,12 @@
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+app.post('/notify', (req, res) => {
+  const { message } = req.body;
+  // Fake send notification logic
+  console.log('Sending notification:', message);
+  res.json({ status: 'sent' });
+});
+
+app.listen(3003, () => console.log('Notification service on port 3003'));
