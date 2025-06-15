@@ -1,0 +1,19 @@
+#javascript
+
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+app.post('/signup', (req, res) => {
+  const { username, password } = req.body;
+  // fake user creation logic
+  res.json({ message: 'User created', user: { username } });
+});
+
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  // fake auth logic
+  res.json({ token: 'fake-jwt-token' });
+});
+
+app.listen(3001, () => console.log('Auth service on port 3001'));
